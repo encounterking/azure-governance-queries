@@ -1,0 +1,38 @@
+// Query ID: ARG-003
+// Name: Complete Defender Software Inventory
+//
+// Purpose:
+// Extract Microsoft Defender software-inventory records for Azure VMs.
+//
+// Important:
+// A single VM can return hundreds of package-level records.
+//
+// Handling:
+// Do not commit the resulting CSV export to this repository.
+
+securityresources
+| where type =~ "microsoft.security/softwareinventories"
+| extend
+    vmId = tostring(properties.azureVmId),
+    vendor = tostring(properties.vendor),
+    software = tostring(properties.softwareName),
+    version = tostring(properties.version),
+    endOfSupportStatus =
+        tostring(properties.endOfSupportStatus),
+    endOfSupportDate =
+        tostring(properties.endOfSupportDate)
+| extend
+    subscriptionId = tostring(split(vmId, "/")[2]),
+    resourceGroup = tostring(split(vmId, "/")[4]),
+    vmName = tostring(split(vmId, "/")[-1])
+| project
+    subscriptionId,
+    resourceGroup,
+    vmName,
+    vendor,
+    software,
+    version,
+    endOfSupportStatus,
+    endOfSupportDate,
+    vmId
+| order by vmName asc, software asc, version asc
