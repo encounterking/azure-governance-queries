@@ -1,0 +1,38 @@
+securityresources
+| where type =~ "microsoft.security/softwareinventories"
+| extend
+    vmId = tostring(properties.azureVmId),
+    vendor = tostring(properties.vendor),
+    software = tostring(properties.softwareName),
+    version = tostring(properties.version),
+    endOfSupportStatus = tostring(properties.endOfSupportStatus),
+    endOfSupportDate = tostring(properties.endOfSupportDate)
+| where isnotempty(endOfSupportStatus)
+| extend
+    subscriptionId = tostring(split(vmId, "/")[2]),
+    resourceGroup = tostring(split(vmId, "/")[4]),
+    vmName = tostring(split(vmId, "/")[-1])
+| extend
+    findingWriteUp = "Microsoft Defender has detected software with an end-of-support, end-of-life or approaching-end-of-support status on the affected virtual machine. Unsupported software may no longer receive security updates, defect fixes or vendor assistance, increasing exposure to known vulnerabilities, compatibility failures and operational disruption. The detection confirms that the software was identified on the virtual machine, but it does not prove that the component is actively used, externally exposed or exploitable. Technical validation is required."
+| extend
+    suggestedRemediation = "The technical owner should confirm whether the detected component is actively used and required. If unused, remove it through approved change control. If required, identify a vendor-supported replacement or target version, complete compatibility testing and schedule the upgrade. If remediation cannot be completed within the agreed period, document compensating controls, an accountable owner, a target completion date and a time-bound risk exception."
+| extend
+    validationRequired = "Yes - confirm active use, application dependency, exposure and ownership before remediation."
+| project
+    subscriptionId,
+    resourceGroup,
+    vmName,
+    vendor,
+    software,
+    version,
+    endOfSupportStatus,
+    endOfSupportDate,
+    findingWriteUp,
+    suggestedRemediation,
+    validationRequired,
+    vmId
+| order by
+    endOfSupportStatus asc,
+    vmName asc,
+    software asc,
+    version asc
