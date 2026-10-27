@@ -1,4 +1,4 @@
-<img width="1688" height="2268" alt="image" src="https://github.com/user-attachments/assets/159818ef-1899-46e0-bc72-9124a5ed55d7" /># azure-governance-queries
+# azure-governance-queries
 Version-controlled Azure Resource Graph and Defender queries for infrastructure inventory, lifecycle monitoring and audit evidence.
 Azure Governance Queries
 This repository contains version-controlled Azure Resource Graph and Microsoft Defender for Cloud queries used for infrastructure inventory, software inventory, lifecycle monitoring and audit evidence.
