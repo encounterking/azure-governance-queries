@@ -1,0 +1,38 @@
+// Query ID: ARG-002
+// Name: Azure Virtual Machine Infrastructure Baseline
+//
+// Purpose:
+// Produce one row per Azure virtual machine, including the operating
+// system, VM size, region and source-image information.
+//
+// Handling:
+// Do not commit exported results to this repository.
+
+Resources
+| where type =~ "microsoft.compute/virtualmachines"
+| extend
+    vmName = name,
+    osType = tostring(properties.storageProfile.osDisk.osType),
+    vmSize = tostring(properties.hardwareProfile.vmSize),
+    imagePublisher =
+        tostring(properties.storageProfile.imageReference.publisher),
+    imageOffer =
+        tostring(properties.storageProfile.imageReference.offer),
+    imageSku =
+        tostring(properties.storageProfile.imageReference.sku),
+    imageVersion =
+        tostring(properties.storageProfile.imageReference.version)
+| project
+    subscriptionId,
+    resourceGroup,
+    vmName,
+    location,
+    osType,
+    vmSize,
+    imagePublisher,
+    imageOffer,
+    imageSku,
+    imageVersion,
+    resourceId = id,
+    tags
+| order by resourceGroup asc, vmName asc
