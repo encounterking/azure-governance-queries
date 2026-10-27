@@ -1,0 +1,36 @@
+# Azure query outputs
+*.csv
+*.tsv
+*.xlsx
+*.xls
+
+# Data and evidence exports
+outputs/
+exports/
+evidence/
+reports/
+screenshots/
+
+# Potentially sensitive structured data
+*.json
+
+# Credentials and configuration
+.env
+.env.*
+*.pem
+*.pfx
+*.key
+*.cer
+*.crt
+*.secret
+credentials*
+secrets*
+
+# Local tools
+.azure/
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
