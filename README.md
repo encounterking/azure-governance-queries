@@ -45,21 +45,17 @@ More query categories will be added over time (e.g. vulnerability management, po
 6. Click **Run query**
 7. Export results to CSV only to your **approved evidence storage location**
 
-> **âš ï¸ Important:** Query results are scoped to the subscriptions you select and limited to your Azure RBAC permissions. Always confirm scope before running.
+Note: Query results are scoped to the subscriptions you select and limited to your Azure RBAC permissions. Always confirm scope before running.
 
 ---
 
-## Data Handling Rules
+## A Note on Query Results
 
-This repository contains **query definitions only**. The following must never be committed:
+These queries can return sensitive data â€” things like resource names, software versions, VM configurations, and subscription details. A few things to keep in mind:
 
-- Azure Resource Graph CSV exports or query results
-- Defender software inventory exports
-- Subscription IDs, tenant IDs, or management group identifiers in documentation
-- Credentials, secrets, access tokens, or API keys
-- Internal screenshots or screen recordings
-- Audit evidence or evidence packages
-- Customer data or personal information
+- Do not commit exported results (CSV files, screenshots, etc.) back into this repository
+- Store outputs in a secure location appropriate to your organisation's data classification requirements
+- Be mindful of subscription IDs and tenant identifiers in any documentation you publish
 
 ---
 
