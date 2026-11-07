@@ -1,10 +1,10 @@
-# ðŸ›¡ï¸ Azure Governance Queries
+# Azure Governance Queries
 
-> Version-controlled Azure Resource Graph and Microsoft Defender for Cloud queries for infrastructure inventory, lifecycle monitoring, and GRC audit evidence.
+Version-controlled Azure Resource Graph and Microsoft Defender for Cloud queries for infrastructure inventory, lifecycle monitoring, and GRC audit evidence.
 
 ---
 
-## ðŸ“‹ Overview
+## Overview
 
 This repository is a curated library of **KQL (Kusto Query Language)** queries designed to support Governance, Risk and Compliance (GRC) activities across Azure environments. Queries are written for **Azure Resource Graph Explorer** and **Microsoft Defender for Cloud** and are intended to be run directly â€” not automated or scheduled.
 
@@ -16,7 +16,7 @@ The queries help answer common GRC questions such as:
 
 ---
 
-## ðŸ“ Repository Structure
+## Repository Structure
 
 ```
 queries/
@@ -27,7 +27,7 @@ More query categories will be added over time (e.g. vulnerability management, po
 
 ---
 
-## ðŸ—‚ï¸ Query Categories
+## Query Categories
 
 | Folder | Description |
 |--------|-------------|
@@ -35,7 +35,7 @@ More query categories will be added over time (e.g. vulnerability management, po
 
 ---
 
-## â–¶ï¸ How to Run a Query
+## How to Run a Query
 
 1. Open [**Azure Resource Graph Explorer**](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) in the Azure Portal
 2. Set your **subscription and directory scope** (top-left of the Explorer)
@@ -49,7 +49,7 @@ More query categories will be added over time (e.g. vulnerability management, po
 
 ---
 
-## ðŸ”’ Data Handling Rules
+## Data Handling Rules
 
 This repository contains **query definitions only**. The following must never be committed:
 
@@ -63,7 +63,7 @@ This repository contains **query definitions only**. The following must never be
 
 ---
 
-## ðŸŽ¯ GRC Use Cases
+## GRC Use Cases
 
 | Use Case | Relevant Queries |
 |----------|-----------------|
@@ -75,7 +75,7 @@ This repository contains **query definitions only**. The following must never be
 
 ---
 
-## ðŸ› ï¸ Prerequisites
+## Prerequisites
 
 | Requirement | Details |
 |-------------|---------|
@@ -85,7 +85,7 @@ This repository contains **query definitions only**. The following must never be
 
 ---
 
-## ðŸ“Œ Query Index
+## Query Index
 
 | Query ID | File | Description |
 |----------|------|-------------|
@@ -96,7 +96,7 @@ This repository contains **query definitions only**. The following must never be
 
 ---
 
-## ðŸ¤ Contributing
+## Contributing
 
 When adding new queries, follow these conventions:
 
@@ -123,6 +123,8 @@ When adding new queries, follow these conventions:
 
 ---
 
-## ðŸ“„ Licence
+## Licence
 
-Internal use only. Not for public distribution.
+MIT License â€” see [LICENSE](./LICENSE) for full terms.
+
+This project is open source. You are free to use, copy, modify, and distribute these queries, provided the original author is credited.
