@@ -1,3 +1,21 @@
+// Query ID: ARG-004
+// Name: End-of-Support and End-of-Life Software Detection
+//
+// Purpose:
+// Identify software on Azure VMs that Microsoft Defender for Cloud has
+// flagged with an end-of-support, end-of-life or approaching-end-of-support
+// status. Includes pre-populated finding write-up, suggested remediation
+// and validation guidance for use in risk registers and audit findings.
+//
+// Important:
+// Results depend on Defender for Cloud being enabled and the software
+// inventory feature being active on the target VMs.
+// A non-empty endOfSupportStatus does not confirm active use or exploitability â€”
+// technical validation is always required before remediation.
+//
+// Handling:
+// Do not commit exported results to this repository.
+
 securityresources
 | where type =~ "microsoft.security/softwareinventories"
 | extend
